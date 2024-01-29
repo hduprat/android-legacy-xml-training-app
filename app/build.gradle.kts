@@ -40,6 +40,9 @@ dependencies {
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
     implementation(libs.android.constraintLayout)
+    implementation(libs.navigation.ui)
+    implementation(libs.navigation.fragment)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.test.junit.android)
     androidTestImplementation(libs.test.espresso)
