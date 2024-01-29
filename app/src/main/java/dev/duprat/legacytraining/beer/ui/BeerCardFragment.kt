@@ -11,19 +11,20 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import dev.duprat.legacytraining.R
 import dev.duprat.legacytraining.beer.model.Beer
+import dev.duprat.legacytraining.common.ui.TagList
 
 class BeerCardFragment : Fragment() {
     private var name: String? = null
     private var tagline: String? = null
-    private var description: String? = null
     private var imageUrl: String? = null
+    private var hops: List<String> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             name = it.getString("name")
             tagline = it.getString("tagline")
-            description = it.getString("description")
+            hops = it.getStringArray("hops")?.toList() ?: emptyList()
             imageUrl = it.getString("imageUrl")
         }
     }
@@ -36,7 +37,9 @@ class BeerCardFragment : Fragment() {
         return view.apply {
             findViewById<TextView>(R.id.beer_name).apply { text = name }
             findViewById<TextView>(R.id.beer_tagline).apply { text = tagline }
-            findViewById<TextView>(R.id.beer_description).apply { text = description }
+            findViewById<TagList>(R.id.beer_hops_tag_list).apply {
+                addTags(hops)
+            }
             findViewById<ImageView>(R.id.beer_image).apply {
                 contentDescription = name
                 Glide.with(this).load(imageUrl).into(this)
@@ -49,7 +52,7 @@ class BeerCardFragment : Fragment() {
             arguments = bundleOf(
                 "name" to model.name,
                 "tagline" to model.tagline,
-                "description" to model.description,
+                "hops" to model.hops.toTypedArray(),
                 "imageUrl" to model.imageUrl
             )
         }

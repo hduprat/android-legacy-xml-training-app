@@ -22,13 +22,12 @@ class HomeScreenFragment : Fragment() {
             Beer(
                 name = "Punk IPA",
                 tagline = "Post Modern Classic. Spiky. Tropical. Hoppy.",
-                description = "Our scene-stealing flagship is an India Pale Ale that has become a byword for craft beer rebellion; synonymous with the insurgency against mass-produced, lowest common denominator beer. Punk IPA charges the barricades to fly its colours from the ramparts – full-on, full-flavour; at full-throttle.",
-                imageUrl = "https://images.punkapi.com/v2/192.png"
+                hops = listOf("Ahtanum", "Chinook", "Simcoe"),
+                imageUrl = "https://images.punkapi.com/v2/192.png",
+                description = "Our scene-stealing flagship is an India Pale Ale that has become a byword for craft beer rebellion; synonymous with the insurgency against mass-produced, lowest common denominator beer. Punk IPA charges the barricades to fly its colours from the ramparts – full-on, full-flavour; at full-throttle."
             )
         )
 
-        childFragmentManager.beginTransaction()
-            .replace(R.id.beer_card_fragment, beerCard)
-            .commit()
+        childFragmentManager.beginTransaction().replace(R.id.beer_card_fragment, beerCard).commit()
     }
 }
