@@ -9,7 +9,7 @@
         android:id="@+id/beer_image"
         android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         tools:contentDescription="La Chouffe"
         tools:srcCompat="@tools:sample/avatars[2]" />
 

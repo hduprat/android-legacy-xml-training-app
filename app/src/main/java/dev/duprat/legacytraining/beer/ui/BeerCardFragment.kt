@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import dev.duprat.legacytraining.R
 import dev.duprat.legacytraining.beer.model.Beer
 
@@ -36,7 +37,10 @@ class BeerCardFragment : Fragment() {
             findViewById<TextView>(R.id.beer_name).apply { text = name }
             findViewById<TextView>(R.id.beer_tagline).apply { text = tagline }
             findViewById<TextView>(R.id.beer_description).apply { text = description }
-            findViewById<ImageView>(R.id.beer_image).apply { contentDescription = name }
+            findViewById<ImageView>(R.id.beer_image).apply {
+                contentDescription = name
+                Glide.with(this).load(imageUrl).into(this)
+            }
         }
     }
 
