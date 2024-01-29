@@ -10,11 +10,13 @@ navigation = "2.7.6"
 kotlin = "1.9.22"
 application = "8.2.2"
 glide = "4.16.0"
+flexbox = "3.0.0"
 
 [libraries]
 android-core = { module = "androidx.core:core-ktx", version.ref = "core" }
 android-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
 android-material = { module = "com.google.android.material:material", version.ref = "material" }
+android-flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 android-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
 junit = { module = "junit:junit", version.ref = "junit" }
 test-junit-android = { module = "androidx.test.ext:junit", version.ref = "androidJunit" }
