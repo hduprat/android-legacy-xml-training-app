@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/beer_image"
+        android:layout_width="80dp"
+        android:layout_height="96dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars[2]" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/beer_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="La Chouffe"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:text="Une excellente bière, mais un peu forte, faites attention quand même !"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</LinearLayout>
