@@ -5,10 +5,10 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.flexbox.FlexboxLayout
 import dev.duprat.legacytraining.R
+import dev.duprat.legacytraining.databinding.TagLayoutBinding
 
 class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, attrs) {
     private var tagColor: Int
@@ -26,15 +26,14 @@ class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, at
 
     fun addTags(tags: List<String>) {
         tags.forEach { tag ->
-            val tagView =
-                LayoutInflater.from(context).inflate(R.layout.tag_layout, this, false) as TextView
+            val tagView = TagLayoutBinding.inflate(LayoutInflater.from(context), this, false).root
             tagView.text = tag
 
             val background = ContextCompat.getDrawable(context, R.drawable.tag_background)
                 ?.mutate() as GradientDrawable
             background.setColor(tagColor)
             tagView.background = background
-            
+
             addView(tagView)
         }
     }

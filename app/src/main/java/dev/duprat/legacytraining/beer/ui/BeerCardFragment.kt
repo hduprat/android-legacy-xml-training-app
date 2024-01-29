@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import dev.duprat.legacytraining.R
 import dev.duprat.legacytraining.beer.model.Beer
-import dev.duprat.legacytraining.common.ui.TagList
+import dev.duprat.legacytraining.databinding.BeerCardBinding
 
 class BeerCardFragment : Fragment() {
     private var name: String? = null
@@ -33,23 +30,20 @@ class BeerCardFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.beer_card, container, false)
-
-        return view.apply {
-            findViewById<TextView>(R.id.beer_name).apply { text = name }
-            findViewById<TextView>(R.id.beer_tagline).apply { text = tagline }
-            findViewById<TagList>(R.id.beer_hops_tag_list).apply {
-                addTags(hops)
-            }
-            findViewById<TagList>(R.id.beer_malts_tag_list).apply {
-                addTags(malts)
-            }
-            findViewById<ImageView>(R.id.beer_image).apply {
+    ): View {
+        val binding = BeerCardBinding.inflate(inflater, container, false)
+        binding.apply {
+            beerName.text = name
+            beerTagline.text = tagline
+            beerHopsTagList.addTags(hops)
+            beerMaltsTagList.addTags(malts)
+            beerImage.apply {
                 contentDescription = name
                 Glide.with(this).load(imageUrl).into(this)
             }
         }
+
+        return binding.root
     }
 
     companion object {

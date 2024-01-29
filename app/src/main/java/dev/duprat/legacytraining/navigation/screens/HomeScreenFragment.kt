@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import dev.duprat.legacytraining.R
 import dev.duprat.legacytraining.beer.model.Beer
 import dev.duprat.legacytraining.beer.ui.BeerCardFragment
+import dev.duprat.legacytraining.databinding.HomeScreenBinding
 
 class HomeScreenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.home_screen, container, false)
+    ): View {
+        return HomeScreenBinding.inflate(inflater, container, false).root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
