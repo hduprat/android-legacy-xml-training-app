@@ -13,7 +13,6 @@ class HomeScreenFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        inflater.inflate(R.layout.home_screen, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.home_screen, container, false)
     }
 }
