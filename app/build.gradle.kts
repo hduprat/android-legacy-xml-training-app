@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.android.constraintLayout)
     implementation(libs.navigation.ui)
     implementation(libs.navigation.fragment)
+    implementation(libs.glide)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.test.junit.android)
