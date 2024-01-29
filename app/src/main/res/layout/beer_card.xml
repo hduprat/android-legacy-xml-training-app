@@ -45,6 +45,13 @@
             android:layout_marginTop="@dimen/spacing_s"
             app:tagColor="@color/hops_dark_green" />
 
+        <dev.duprat.legacytraining.common.ui.TagList
+            android:id="@+id/beer_malts_tag_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:tagColor="@color/malt_dark_brown" />
+
         <TextView
             android:id="@+id/beer_description"
             android:layout_width="match_parent"

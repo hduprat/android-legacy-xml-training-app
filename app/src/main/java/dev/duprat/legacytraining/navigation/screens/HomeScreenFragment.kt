@@ -23,6 +23,7 @@ class HomeScreenFragment : Fragment() {
                 name = "Punk IPA",
                 tagline = "Post Modern Classic. Spiky. Tropical. Hoppy.",
                 hops = listOf("Ahtanum", "Chinook", "Simcoe"),
+                malts = listOf("Extra Pale", "Caramalt", "Munich"),
                 imageUrl = "https://images.punkapi.com/v2/192.png",
                 description = "Our scene-stealing flagship is an India Pale Ale that has become a byword for craft beer rebellion; synonymous with the insurgency against mass-produced, lowest common denominator beer. Punk IPA charges the barricades to fly its colours from the ramparts – full-on, full-flavour; at full-throttle."
             )

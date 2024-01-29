@@ -18,6 +18,7 @@ class BeerCardFragment : Fragment() {
     private var tagline: String? = null
     private var imageUrl: String? = null
     private var hops: List<String> = emptyList()
+    private var malts: List<String> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class BeerCardFragment : Fragment() {
             name = it.getString("name")
             tagline = it.getString("tagline")
             hops = it.getStringArray("hops")?.toList() ?: emptyList()
+            malts = it.getStringArray("malts")?.toList() ?: emptyList()
             imageUrl = it.getString("imageUrl")
         }
     }
@@ -40,6 +42,9 @@ class BeerCardFragment : Fragment() {
             findViewById<TagList>(R.id.beer_hops_tag_list).apply {
                 addTags(hops)
             }
+            findViewById<TagList>(R.id.beer_malts_tag_list).apply {
+                addTags(malts)
+            }
             findViewById<ImageView>(R.id.beer_image).apply {
                 contentDescription = name
                 Glide.with(this).load(imageUrl).into(this)
@@ -53,6 +58,7 @@ class BeerCardFragment : Fragment() {
                 "name" to model.name,
                 "tagline" to model.tagline,
                 "hops" to model.hops.toTypedArray(),
+                "malts" to model.malts.toTypedArray(),
                 "imageUrl" to model.imageUrl
             )
         }

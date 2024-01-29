@@ -5,5 +5,6 @@ data class Beer(
     val tagline: String,
     val description: String,
     val imageUrl: String,
-    val hops: List<String>
+    val hops: List<String>,
+    val malts: List<String>,
 )
