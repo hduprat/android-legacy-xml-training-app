@@ -8,8 +8,9 @@
     <ImageView
         android:id="@+id/beer_image"
         android:layout_width="80dp"
-        android:layout_height="96dp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
+        tools:contentDescription="La Chouffe"
         tools:srcCompat="@tools:sample/avatars[2]" />
 
     <LinearLayout
@@ -22,15 +23,26 @@
             android:id="@+id/beer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="La Chouffe"
-            android:textSize="@dimen/text_size_l" />
+            android:textSize="@dimen/text_size_l"
+            android:textStyle="bold"
+            tools:text="La Chouffe" />
 
         <TextView
+            android:id="@+id/beer_tagline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xs"
-            android:text="Une excellente bière, mais un peu forte, faites attention quand même !"
-            android:textStyle="italic" />
+            android:textSize="@dimen/text_size_m"
+            tools:text="Une bière forte et agréable." />
+
+        <TextView
+            android:id="@+id/beer_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textSize="@dimen/text_size_s"
+            android:textStyle="italic"
+            tools:text="Une excellente bière, mais un peu forte, faites attention quand même !" />
 
     </LinearLayout>
 </LinearLayout>
