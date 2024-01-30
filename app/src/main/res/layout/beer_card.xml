@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/spacing_m">
 
     <ImageView
         android:id="@+id/beer_image"
         android:layout_width="80dp"
-        android:layout_height="96dp"
-        android:scaleType="centerCrop"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        tools:contentDescription="La Chouffe"
         tools:srcCompat="@tools:sample/avatars[2]" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_s"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_s">
 
         <TextView
             android:id="@+id/beer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="La Chouffe"
-            android:textSize="@dimen/text_size_l" />
+            android:textSize="@dimen/text_size_l"
+            android:textStyle="bold"
+            tools:text="La Chouffe" />
 
         <TextView
+            android:id="@+id/beer_tagline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xs"
-            android:text="Une excellente bière, mais un peu forte, faites attention quand même !"
-            android:textStyle="italic" />
+            android:textSize="@dimen/text_size_m"
+            tools:text="Une bière forte et agréable." />
+
+        <dev.duprat.legacytraining.common.ui.TagList
+            android:id="@+id/beer_hops_tag_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:tagColor="@color/hops_dark_green" />
+
+        <dev.duprat.legacytraining.common.ui.TagList
+            android:id="@+id/beer_malts_tag_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:tagColor="@color/malt_dark_brown" />
 
     </LinearLayout>
 </LinearLayout>

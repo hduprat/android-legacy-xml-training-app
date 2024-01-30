@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -40,6 +43,11 @@ dependencies {
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
     implementation(libs.android.constraintLayout)
+    implementation(libs.android.flexbox)
+    implementation(libs.navigation.ui)
+    implementation(libs.navigation.fragment)
+    implementation(libs.glide)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.test.junit.android)
     androidTestImplementation(libs.test.espresso)
