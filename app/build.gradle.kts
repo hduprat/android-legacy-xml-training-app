@@ -39,17 +39,29 @@ android {
 }
 
 dependencies {
+    // Android
     implementation(libs.android.core)
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
     implementation(libs.android.constraintLayout)
     implementation(libs.android.flexbox)
+
+    // Navigation
     implementation(libs.navigation.ui)
     implementation(libs.navigation.fragment)
+
+    //Glide
     implementation(libs.glide)
+
+    // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+
+    // Koin
     implementation(libs.koin)
+
+    // Store
+    implementation(libs.store)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.test.junit.android)
