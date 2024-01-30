@@ -9,9 +9,11 @@ import androidx.core.content.ContextCompat
 import com.google.android.flexbox.FlexboxLayout
 import dev.duprat.legacytraining.R
 import dev.duprat.legacytraining.databinding.TagLayoutBinding
+import dev.duprat.legacytraining.databinding.TagListLayoutBinding
 
 class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, attrs) {
     private var tagColor: Int
+    private val binding = TagListLayoutBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.TagList, 0, 0).apply {
@@ -21,11 +23,10 @@ class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, at
                 recycle()
             }
         }
-        inflate(context, R.layout.tag_list_layout, this)
     }
 
     fun addTags(tags: List<String>) {
-        tags.forEach { tag ->
+        tags.toSet().forEach { tag ->
             val tagView = TagLayoutBinding.inflate(LayoutInflater.from(context), this, false).root
             tagView.text = tag
 
@@ -37,7 +38,7 @@ class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, at
             val layoutParams = tagView.layoutParams as LayoutParams
             layoutParams.marginEnd = 8
 
-            addView(tagView)
+            binding.tagList.addView(tagView)
         }
     }
 }
