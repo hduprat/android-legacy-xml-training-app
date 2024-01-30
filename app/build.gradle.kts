@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.glide)
     implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.test.junit.android)
