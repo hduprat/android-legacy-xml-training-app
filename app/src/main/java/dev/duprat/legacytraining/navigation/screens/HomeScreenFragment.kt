@@ -5,8 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import dev.duprat.legacytraining.beer.model.Beer
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import dev.duprat.legacytraining.beer.domain.BeerViewModel
 import dev.duprat.legacytraining.databinding.HomeScreenBinding
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.mobilenativefoundation.store.store5.StoreReadResponse
 
 class HomeScreenFragment : Fragment() {
     private lateinit var binding: HomeScreenBinding
@@ -19,15 +25,17 @@ class HomeScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.beerCard.setBeer(
-            Beer(
-                name = "Punk IPA",
-                tagline = "Post Modern Classic. Spiky. Tropical. Hoppy.",
-                hops = listOf("Ahtanum", "Chinook", "Simcoe"),
-                malts = listOf("Extra Pale", "Caramalt", "Munich"),
-                imageUrl = "https://images.punkapi.com/v2/192.png",
-                description = "Our scene-stealing flagship is an India Pale Ale that has become a byword for craft beer rebellion; synonymous with the insurgency against mass-produced, lowest common denominator beer. Punk IPA charges the barricades to fly its colours from the ramparts – full-on, full-flavour; at full-throttle."
-            )
-        )
+        val viewModel: BeerViewModel by inject()
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { state ->
+                    when (state) {
+                        is StoreReadResponse.Data -> binding.beerCard.setBeer(state.value.first())
+                        else -> Unit
+                    }
+                }
+            }
+        }
     }
 }
