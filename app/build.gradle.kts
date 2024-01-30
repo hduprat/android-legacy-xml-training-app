@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    implementation(libs.koin)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.test.junit.android)
