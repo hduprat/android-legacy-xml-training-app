@@ -12,7 +12,7 @@ class BeerCard(context: Context, attrs: AttributeSet) : LinearLayout(context, at
     private val binding = BeerCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun setBeer(beer: Beer) {
-        binding.run {
+        binding.apply {
             beerName.text = beer.name
             beerTagline.text = beer.tagline
             beerHopsTagList.addTags(beer.hops)
