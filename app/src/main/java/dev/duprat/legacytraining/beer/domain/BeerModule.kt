@@ -5,4 +5,5 @@ import org.koin.dsl.module
 
 val beerModule = module {
     single { BeerRepository(beerApi) }
+    single { BeerViewModel(get()) }
 }
