@@ -52,14 +52,5 @@
             android:layout_marginTop="@dimen/spacing_s"
             app:tagColor="@color/malt_dark_brown" />
 
-        <TextView
-            android:id="@+id/beer_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
-            android:textSize="@dimen/text_size_s"
-            android:textStyle="italic"
-            tools:text="Une excellente bière, mais un peu forte, faites attention quand même !" />
-
     </LinearLayout>
 </LinearLayout>
