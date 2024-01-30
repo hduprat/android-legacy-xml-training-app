@@ -34,6 +34,9 @@ class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, at
             background.setColor(tagColor)
             tagView.background = background
 
+            val layoutParams = tagView.layoutParams as LayoutParams
+            layoutParams.marginEnd = 8
+
             addView(tagView)
         }
     }
