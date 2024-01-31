@@ -22,6 +22,9 @@ import org.mobilenativefoundation.store.store5.StoreReadResponse
 
 class HomeScreenFragment : Fragment() {
     private lateinit var binding: HomeScreenBinding
+    private val loader by lazy { binding.loader }
+    private val beerCardList by lazy { binding.beerCardList }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -44,6 +47,7 @@ class HomeScreenFragment : Fragment() {
                 viewModel.state.collect { state ->
                     when (state) {
                         is StoreReadResponse.Data -> displayBeerList(state.value)
+                        is StoreReadResponse.Loading -> displayLoader()
                         else -> Unit
                     }
                 }
@@ -51,9 +55,15 @@ class HomeScreenFragment : Fragment() {
         }
     }
 
+    private fun displayLoader() {
+        beerCardList.visibility = View.GONE
+        loader.visibility = View.VISIBLE
+    }
+
     private fun displayBeerList(beers: List<Beer>) {
-        val recyclerView = binding.beerCardList
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = BeerAdapter(beers)
+        loader.visibility = View.GONE
+        beerCardList.layoutManager = LinearLayoutManager(context)
+        beerCardList.adapter = BeerAdapter(beers)
+        beerCardList.visibility = View.VISIBLE
     }
 }
