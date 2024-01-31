@@ -1,6 +1,6 @@
 package dev.duprat.legacytraining.beer.model
 
-class BeerAdapter {
+class BeerDtoAdapter {
     companion object {
         fun toDomain(dto:BeerDto):Beer = Beer(
             name = dto.name,
