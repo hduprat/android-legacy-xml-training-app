@@ -15,8 +15,8 @@ class BeerCard(context: Context, attrs: AttributeSet? = null) : LinearLayout(con
         binding.apply {
             beerName.text = beer.name
             beerTagline.text = beer.tagline
-            beerHopsTagList.addTags(beer.hops)
-            beerMaltsTagList.addTags(beer.malts)
+            beerHopsTagList.setTags(beer.hops)
+            beerMaltsTagList.setTags(beer.malts)
             beerImage.apply {
                 contentDescription = beer.name
                 Glide.with(this).load(beer.imageUrl).into(this)

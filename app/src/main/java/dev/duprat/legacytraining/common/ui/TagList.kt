@@ -25,8 +25,10 @@ class TagList(context: Context, attrs: AttributeSet) : FlexboxLayout(context, at
         }
     }
 
-    fun addTags(tags: List<String>) {
-        tags.toSet().forEach { tag ->
+    fun setTags(tags: List<String>) {
+        binding.tagList.removeAllViews()
+        val tagsSet = tags.toSet()
+        tagsSet.forEach { tag ->
             val tagView = TagLayoutBinding.inflate(LayoutInflater.from(context), this, false).root
             tagView.text = tag
 
