@@ -3,6 +3,7 @@ package dev.duprat.legacytraining
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import dev.duprat.legacytraining.beer.domain.beerModule
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -11,6 +12,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        // For now, we deactivate dark mode.
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         startKoin {
             modules(beerModule)
         }
