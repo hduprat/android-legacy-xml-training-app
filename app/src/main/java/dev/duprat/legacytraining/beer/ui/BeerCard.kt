@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import dev.duprat.legacytraining.beer.model.Beer
 import dev.duprat.legacytraining.databinding.BeerCardBinding
 
-class BeerCard(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+class BeerCard(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     private val binding = BeerCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun setBeer(beer: Beer) {

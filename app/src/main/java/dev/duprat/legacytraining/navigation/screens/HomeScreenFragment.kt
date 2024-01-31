@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import dev.duprat.legacytraining.beer.domain.BeerViewModel
+import dev.duprat.legacytraining.beer.model.Beer
+import dev.duprat.legacytraining.beer.ui.BeerAdapter
 import dev.duprat.legacytraining.databinding.HomeScreenBinding
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -31,11 +34,17 @@ class HomeScreenFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { state ->
                     when (state) {
-                        is StoreReadResponse.Data -> binding.beerCard.setBeer(state.value.first())
+                        is StoreReadResponse.Data -> displayBeerList(state.value)
                         else -> Unit
                     }
                 }
             }
         }
+    }
+
+    private fun displayBeerList(beers: List<Beer>) {
+        val recyclerView = binding.beerCardList
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = BeerAdapter(beers)
     }
 }
