@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
+import dev.duprat.legacytraining.R
 import dev.duprat.legacytraining.beer.model.Beer
 import dev.duprat.legacytraining.databinding.BeerCardBinding
 
@@ -22,6 +23,14 @@ class BeerCard(context: Context, attrs: AttributeSet? = null) : LinearLayout(con
                 Glide.with(this).load(beer.imageUrl).into(this)
             }
         }
+    }
+
+    fun setAlternateBackground() {
+        binding.root.setBackgroundResource(R.color.beer_wheat_yellow)
+    }
+
+    fun resetBackground() {
+        binding.root.background = null
     }
 
 }

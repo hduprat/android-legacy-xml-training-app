@@ -8,8 +8,10 @@ class BeerAdapter(private val beers: List<Beer>) : RecyclerView.Adapter<BeerView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder =
         BeerViewHolder(BeerCard(parent.context))
 
-    override fun onBindViewHolder(holder: BeerViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
+        holder.setBackgroundByPosition(position)
         holder.bind(beers[position])
+    }
 
     override fun getItemCount(): Int = beers.size
 }
