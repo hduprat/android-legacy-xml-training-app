@@ -17,7 +17,7 @@ import dev.duprat.legacytraining.beer.model.Beer
 import dev.duprat.legacytraining.beer.ui.BeerAdapter
 import dev.duprat.legacytraining.databinding.HomeScreenBinding
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mobilenativefoundation.store.store5.StoreReadResponse
 
 class HomeScreenFragment : Fragment() {
@@ -31,7 +31,7 @@ class HomeScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel: BeerViewModel by inject()
+        val viewModel: BeerViewModel by viewModel()
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.mainScreenTitle) { v, insets ->
             v.updatePadding(top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top + v.paddingTop)
