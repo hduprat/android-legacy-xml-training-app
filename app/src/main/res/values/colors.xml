@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="beer_ipa_yellow">#FFFFF59D</color>
+    <color name="beer_wheat_yellow">#FFFFF9C4</color>
     <color name="chouffe_orange">#FFFFB74D</color>
     <color name="hops_dark_green">#FF388E3C</color>
     <color name="malt_dark_brown">#FF5D4037</color>
